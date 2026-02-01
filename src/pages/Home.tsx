@@ -62,7 +62,7 @@ const Home = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-text-muted py-16 text-center px-6 border-t border-white/10">
+      <footer className="bg-text-primary/95 py-16 text-center px-6 border-t border-white/10">
         <p className="text-base font-medium tracking-[0.2em] mb-3 uppercase text-base/100">
           Nos vemos pronto
         </p>

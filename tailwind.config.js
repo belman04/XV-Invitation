@@ -11,7 +11,7 @@ export default {
         surface: "#F0EBE6",
 
         "accent-nude": "#EADCD9",
-        "accent-sage": "#D4B8B1",
+        "accent-sage": "#E6B0A6",
         "ui-detail": "#DCD3CD",
 
         // Texto Apoyo
