@@ -64,7 +64,7 @@ const EventDetails = () => {
         </div>
 
         <a
-          href="https://www.google.com/maps/place/Jardin+de+eventos+Hacienda+NAVA/@32.6365474,-114.8477733,18z/data=!4m6!3m5!1s0x80d655199cb98f61:0x747ef834a209ae6d!8m2!3d32.6370771!4d-114.8461802!16s%2Fg%2F11ff0swzh9?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
+          href="https://www.google.com/maps/search/?api=1&query=Hacienda+NAVA"
           target="_blank"
           rel="noopener noreferrer"
           className="z-10 flex items-center gap-2 px-8 py-4 bg-text-primary text-base rounded-full hover:bg-[#382E29] transition-all duration-300 font-medium text-sm tracking-wide group-hover:pr-6 shadow-lg hover:shadow-xl"

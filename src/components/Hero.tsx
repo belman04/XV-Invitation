@@ -1,8 +1,8 @@
-import FondoIMG from "../assets/fondo-xv.png";
+import FondoIMG from "../assets/fondo-xv.webp";
 
 const Hero = () => {
   return (
-    <header className="relative h-[100dvh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-base">
+    <header className="relative h-[100svh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-base">
       <div className="absolute inset-0 w-full h-full">
         <img
           src={FondoIMG}
