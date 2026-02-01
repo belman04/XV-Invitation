@@ -32,11 +32,19 @@ export default {
       },
       animation: {
         "fade-in": "fadeIn 1s ease-out forwards",
+        "bounce-slow": "bounce-slow 4s infinite",
       },
       keyframes: {
         fadeIn: {
           "0%": { opacity: "0", transform: "translateY(10px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "bounce-slow": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "5%": { transform: "translateY(-10px)" }, // Sube
+          "10%": { transform: "translateY(0)" }, // Baja
+          "15%": { transform: "translateY(-5px)" }, // Rebote
+          "20%": { transform: "translateY(0)" }, // Baja y se queda quieto el 80% restante del tiempo
         },
       },
     },

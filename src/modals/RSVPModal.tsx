@@ -51,29 +51,25 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
       setIsSubmitting(false);
     }
   };
-
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div
         className="absolute inset-0 bg-[#4A3E38]/40 backdrop-blur-md transition-opacity"
         onClick={onClose}
       ></div>
-
       {/* Modal */}
-      <div className="bg-base w-full max-w-lg rounded-[2rem] p-6 md:p-12 relative shadow-2xl animate-fade-in flex flex-col max-h-[90vh] overflow-y-auto border border-white/50">
+      <div className="bg-base w-full max-w-lg rounded-[2rem] p-5 md:p-12 relative shadow-2xl animate-fade-in flex flex-col max-h-[85vh] overflow-y-auto border border-white/50">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-surface hover:bg-surface/80 rounded-full transition-colors text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+          className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-surface hover:bg-surface/80 rounded-full transition-colors text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage z-10"
         >
-          <X size={24} />
+          <X size={20} className="md:w-6 md:h-6" />
         </button>
-
-        <div className="mb-8 md:mb-10 text-center mt-2">
-          <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
+        <div className="mb-6 md:mb-10 text-center mt-4 md:mt-2">
+          <h2 className="text-xl md:text-3xl font-medium text-text-primary px-4">
             Confirmar Asistencia
           </h2>
         </div>
-
         {isSuccess ? (
           <div className="text-center py-12 flex flex-col items-center">
             <div className="w-20 h-20 bg-accent-sage/20 rounded-full flex items-center justify-center mb-6 text-accent-sage">
@@ -87,15 +83,15 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-8 md:space-y-10">
+          <form onSubmit={handleSubmit} className="space-y-6 md:space-y-10">
             <div className="group">
-              <label className="block text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
+              <label className="block text-[10px] md:text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
                 Nombre Completo / Familia
               </label>
               <input
                 name="name"
                 type="text"
-                className="w-full bg-transparent border-b border-ui-detail py-3 md:py-4 text-lg md:text-xl text-text-primary placeholder:text-text-primary/30 focus:outline-none focus:border-accent-sage transition-colors rounded-none"
+                className="w-full bg-transparent border-b border-ui-detail py-2 md:py-4 text-base md:text-xl text-text-primary placeholder:text-text-primary/30 focus:outline-none focus:border-accent-sage transition-colors rounded-none"
                 placeholder="Escribe aquí..."
                 required
                 disabled={isSubmitting}
@@ -103,57 +99,57 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
             </div>
 
             {/* CONTADORES */}
-            <div className="grid grid-cols-2 gap-4 md:gap-8">
+            <div className="grid grid-cols-2 gap-3 md:gap-8">
               <div className="flex flex-col items-center p-3 md:p-4 bg-surface/50 rounded-xl border border-white/50">
-                <label className="text-xs font-bold text-text-muted uppercase mb-3 md:mb-4">
+                <label className="text-[10px] md:text-xs font-bold text-text-muted uppercase mb-2 md:mb-4">
                   Adultos
                 </label>
-                <div className="flex items-center gap-3 md:gap-4">
+                <div className="flex items-center gap-2 md:gap-4">
                   <button
                     type="button"
                     onClick={() => setAdults(Math.max(1, adults - 1))}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
                   >
-                    <Minus size={20} />
+                    <Minus size={16} className="md:w-5 md:h-5" />
                   </button>
 
-                  <span className="text-xl md:text-2xl font-medium text-text-primary w-6 text-center">
+                  <span className="text-lg md:text-2xl font-medium text-text-primary w-4 md:w-6 text-center">
                     {adults}
                   </span>
 
                   <button
                     type="button"
                     onClick={() => setAdults(adults + 1)}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
                   >
-                    <Plus size={20} />
+                    <Plus size={16} className="md:w-5 md:h-5" />
                   </button>
                 </div>
               </div>
 
               <div className="flex flex-col items-center p-3 md:p-4 bg-surface/50 rounded-xl border border-white/50">
-                <label className="text-xs font-bold text-text-muted uppercase mb-3 md:mb-4">
+                <label className="text-[10px] md:text-xs font-bold text-text-muted uppercase mb-2 md:mb-4">
                   Niños
                 </label>
-                <div className="flex items-center gap-3 md:gap-4">
+                <div className="flex items-center gap-2 md:gap-4">
                   <button
                     type="button"
                     onClick={() => setKids(Math.max(0, kids - 1))}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
                   >
-                    <Minus size={20} />
+                    <Minus size={16} className="md:w-5 md:h-5" />
                   </button>
 
-                  <span className="text-xl md:text-2xl font-medium text-text-primary w-6 text-center">
+                  <span className="text-lg md:text-2xl font-medium text-text-primary w-4 md:w-6 text-center">
                     {kids}
                   </span>
 
                   <button
                     type="button"
                     onClick={() => setKids(kids + 1)}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
                   >
-                    <Plus size={20} />
+                    <Plus size={16} className="md:w-5 md:h-5" />
                   </button>
                 </div>
               </div>
@@ -161,7 +157,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
 
             {/* Botón Submit */}
             <div className="pt-2 md:pt-4">
-              <p className="text-center text-sm text-text-primary/60 mb-6">
+              <p className="text-center text-xs md:text-sm text-text-primary/60 mb-4 md:mb-6">
                 Por favor confirmar antes del{" "}
                 <span className="text-text-primary font-bold">1 de Junio</span>
               </p>

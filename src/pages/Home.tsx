@@ -19,7 +19,7 @@ const Home = () => {
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-nude/20 blur-[100px] rounded-full pointer-events-none"></div>
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <p className="text-xs font-bold text-text-muted uppercase tracking-[0.3em] mb-10">
+            <p className="text-[11px] md:text-xs font-bold text-text-muted uppercase tracking-[0.2em] md:tracking-[0.3em] mb-10 text-center whitespace-nowrap">
               Cuenta regresiva para el gran día
             </p>
             <Countdown targetDate={eventDate} />
@@ -75,7 +75,7 @@ const Home = () => {
       <div className="fixed bottom-8 right-6 z-50 animate-fade-in">
         <button
           onClick={() => setIsRsvpOpen(true)}
-          className="group flex items-center gap-3 bg-accent-sage text-white px-6 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/20"
+          className="animate-bounce-slow hover:animate-none group flex items-center gap-3 bg-accent-sage text-white px-6 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/20"
         >
           <span className="text-xs font-bold uppercase tracking-widest hidden md:block">
             Confirmar
