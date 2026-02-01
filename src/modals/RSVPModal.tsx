@@ -53,25 +53,27 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-4 sm:p-0">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div
         className="absolute inset-0 bg-[#4A3E38]/40 backdrop-blur-md transition-opacity"
         onClick={onClose}
       ></div>
 
       {/* Modal */}
-      <div className="relative bg-surface w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh] md:max-h-[90vh]">
+      <div className="bg-base w-full max-w-lg rounded-[2rem] p-6 md:p-12 relative shadow-2xl animate-fade-in flex flex-col max-h-[90vh] overflow-y-auto border border-white/50">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-surface hover:bg-surface/80 rounded-full transition-colors text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
         >
           <X size={24} />
         </button>
+
         <div className="mb-8 md:mb-10 text-center mt-2">
           <h2 className="text-2xl md:text-3xl font-medium text-text-primary">
             Confirmar Asistencia
           </h2>
         </div>
+
         {isSuccess ? (
           <div className="text-center py-12 flex flex-col items-center">
             <div className="w-20 h-20 bg-accent-sage/20 rounded-full flex items-center justify-center mb-6 text-accent-sage">
