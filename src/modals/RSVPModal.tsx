@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { X, Check, Minus, Plus } from "lucide-react";
-
+import { EVENT_CONFIG } from "../config.ts";
 interface RSVPModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -18,11 +18,10 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
     e.preventDefault();
     setIsSubmitting(true);
     // Configuración de Google Forms
-    const GOOGLE_FORM_URL =
-      "https://docs.google.com/forms/d/e/1FAIpQLSdlwA1x9tumH5XhW8iX1o1iBJ-w7zqfCdjYHNl6MtrmJlNf0A/formResponse";
-    const ENTRY_NAME = "entry.1275396921";
-    const ENTRY_ADULTS = "entry.914025087";
-    const ENTRY_KIDS = "entry.766816418";
+    const GOOGLE_FORM_URL = EVENT_CONFIG.googleForm.url;
+    const ENTRY_NAME = EVENT_CONFIG.googleForm.fields.name;
+    const ENTRY_ADULTS = EVENT_CONFIG.googleForm.fields.adults;
+    const ENTRY_KIDS = EVENT_CONFIG.googleForm.fields.kids;
     const formData = new FormData();
     const formElements = e.target as HTMLFormElement;
     const nameInput = formElements.elements.namedItem(
@@ -54,8 +53,6 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    // CAMBIO 1: 'items-center' en lugar de 'items-end' para centrarlo verticalmente en móvil
-    // Agregamos 'p-4' general para que no toque los bordes en pantallas muy pequeñas
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       <div
         className="absolute inset-0 bg-[#4A3E38]/40 backdrop-blur-md transition-opacity"
@@ -63,7 +60,6 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
       ></div>
 
       {/* Modal */}
-      {/* CAMBIO 2: Quitamos 'rounded-t-[2rem]' (borde solo arriba) y dejamos 'rounded-[2rem]' (todo redondo) */}
       <div className="bg-base w-full max-w-lg rounded-[2rem] p-6 md:p-12 relative shadow-2xl animate-fade-in flex flex-col max-h-[90vh] overflow-y-auto border border-white/50">
         <button
           onClick={onClose}

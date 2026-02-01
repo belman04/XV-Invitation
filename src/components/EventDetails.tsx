@@ -1,4 +1,5 @@
 import { MapPin, Calendar, Clock, Church, ArrowUpRight } from "lucide-react";
+import { EVENT_CONFIG } from "../config.ts";
 
 const EventDetails = () => {
   const details = [
@@ -64,7 +65,7 @@ const EventDetails = () => {
         </div>
 
         <a
-          href="https://www.google.com/maps/search/?api=1&query=Hacienda+NAVA"
+          href={EVENT_CONFIG.locationUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="z-10 flex items-center gap-2 px-8 py-4 bg-text-primary text-base rounded-full hover:bg-[#382E29] transition-all duration-300 font-medium text-sm tracking-wide group-hover:pr-6 shadow-lg hover:shadow-xl"
