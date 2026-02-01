@@ -26,10 +26,10 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="w-16 h-[1px] bg-accent-sage mx-auto mb-8"></div>
+        <div className="mx-auto mb-14"></div>
 
         {/* Sección Detalles */}
-        <div className="py-20 md:py-5 px-6">
+        <div className="py-18 md:py-5 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="flex flex-col items-center mb-16">
               <h2 className="text-3xl md:text-5xl font-light text-text-primary mb-4">

@@ -1,11 +1,9 @@
-import FondoIMG from "../assets/fondo-xv.webp";
-
 const Hero = () => {
   return (
     <header className="relative h-[100svh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-base">
       <div className="absolute inset-0 w-full h-full">
         <img
-          src={FondoIMG}
+          src="/fondo-xv.webp"
           alt="Portada"
           className="w-full h-full object-cover brightness-[0.75] sepia-[20%] contrast-110"
         />
@@ -33,7 +31,7 @@ const Hero = () => {
 
         <p className="text-base md:text-xl text-center text-white/90 font-light max-w-lg mx-auto leading-relaxed italic drop-shadow-md text-shadow-sm px-4">
           "Con la bendición de Dios y el amor de mi familia, te invito a
-          compartir este día soñado."
+          compartir este día tan especial."
         </p>
       </div>
     </header>

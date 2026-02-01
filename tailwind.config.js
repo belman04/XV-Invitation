@@ -15,7 +15,7 @@ export default {
         "ui-detail": "#DCD3CD",
 
         // Texto Apoyo
-        "text-muted": "#9C8F85",
+        "text-muted": "#8A7A70",
         // Texto Principal
         "text-primary": "#4A3E38",
       },
