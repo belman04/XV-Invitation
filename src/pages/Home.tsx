@@ -1,61 +1,87 @@
-import { useState } from 'react';
-import { Gift, Check, Heart } from 'lucide-react';
-import Hero from '../components/Hero';
-import Countdown from '../components/Countdown';
-import EventDetails from '../components/EventDetails';
-import RsvpModal from '../modals/RSVPModal';
+import { useState } from "react";
+import { Gift, Mail } from "lucide-react";
+import Hero from "../components/Hero";
+import Countdown from "../components/Countdown";
+import EventDetails from "../components/EventDetails";
+import RsvpModal from "../modals/RSVPModal";
 
 const Home = () => {
   const [isRsvpOpen, setIsRsvpOpen] = useState(false);
-  const eventDate = "2026-10-24T17:00:00"; 
+  const eventDate = "2026-10-24T17:00:00";
 
   return (
-    <div className="min-h-screen bg-beige-claro text-gray-800 selection:bg-rosa-palo">
+    <div className="min-h-screen bg-base text-text-primary font-sans selection:bg-accent-sage selection:text-white">
       <Hero />
 
-      <main className="relative z-20 -mt-32 md:-mt-52 px-6 md:px-12 pb-32">
-        {/* Contenedor más ancho y con bordes más redondeados para PC */}
-        <div className="max-w-[1400px] mx-auto bg-marfil/95 backdrop-blur-md rounded-[4rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] border border-white">
-          
-          <div className="py-16 md:py-28 px-8 md:px-20 lg:px-32">
-            <h2 className="text-center text-4xl md:text-7xl font-bold text-rosa-empolvado mb-20 font-serif italic">
-              ¡Solo faltan!
-            </h2>
-            
+      <main className="relative z-20">
+        {/* Sección Countdown */}
+        <div className="py-20 md:py-30 px-6 relative overflow-hidden bg-gradient-to-b from-white/40 to-base/40">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-nude/20 blur-[100px] rounded-full pointer-events-none"></div>
+
+          <div className="max-w-4xl mx-auto text-center relative z-10">
+            <p className="text-xs font-bold text-text-muted uppercase tracking-[0.3em] mb-10">
+              Cuenta regresiva para el gran día
+            </p>
             <Countdown targetDate={eventDate} />
-            
-            <hr className="my-10 border-gray-200 mx-auto" />
+          </div>
+        </div>
 
-            <EventDetails />
+        <div className="w-16 h-[1px] bg-accent-sage mx-auto mb-8"></div>
 
-            {/* Sección Regalos: Menos rosa, más elegancia */}
-            <div className="max-w-5xl mx-auto text-center border border-gray-100 p-8 md:p-24 rounded-[3rem] bg-white/50 mt-32 transition-transform hover:scale-[1.01] duration-500">
-              <Gift className="w-16 h-16 text-rosa-palo mx-auto mb-10 opacity-80" />
-              <h2 className="text-4xl md:text-5xl font-bold text-cafe mb-8 font-serif uppercase tracking-widest">Lluvia de Sobres</h2>
-              <p className="text-gray-500 text-xl md:text-2xl mb-12 leading-relaxed max-w-3xl mx-auto font-light">
-                Tu presencia es mi mayor regalo, pero si deseas tener un detalle conmigo, 
-                encontrarás un buzón en la entrada para sobres.
+        {/* Sección Detalles */}
+        <div className="py-20 md:py-5 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col items-center mb-16">
+              <h2 className="text-3xl md:text-5xl font-light text-text-primary mb-4">
+                Itinerario
+              </h2>
+              <p className="text-text-muted italic font-light">
+                Acompáñanos en cada momento
               </p>
-              </div>
+            </div>
+            <EventDetails />
+          </div>
+        </div>
+
+        {/* Sección Regalos */}
+        <div className="py-24 px-6 bg-base">
+          <div className="max-w-3xl mx-auto border-t border-b border-ui-detail py-16 text-center relative">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-base px-4">
+              <Gift className="w-6 h-6 text-accent-sage" strokeWidth={1.5} />
+            </div>
+
+            <h2 className="text-2xl font-medium uppercase tracking-widest text-text-primary mb-6">
+              Regalos
+            </h2>
+            <p className="text-text-primary/80 text-lg leading-relaxed max-w-lg mx-auto font-light">
+              Su presencia es mi mayor regalo. Si desean tener un detalle
+              conmigo, contaremos con un buzón para sobres en la recepción.
+            </p>
           </div>
         </div>
       </main>
 
-      {/* Footer minimalista */}
-      <footer className="bg-marfil border-t border-gray-100 text-center py-24">
-        <p className="font-serif italic text-4xl text-cafe mb-6 tracking-tighter">¡Te espero!</p>
-        <div className="flex justify-center items-center gap-3 text-gray-400 text-xs tracking-[0.5em] uppercase">
-          <span>Hecho con</span>
-          <Heart className="w-4 h-4 text-rosa-mexicano fill-current animate-pulse" />
-          <span>para Daniela</span>
-        </div>
+      {/* Footer */}
+      <footer className="bg-text-muted py-16 text-center px-6 border-t border-white/10">
+        <p className="text-base font-medium tracking-[0.2em] mb-3 uppercase text-base/100">
+          Nos vemos pronto
+        </p>
+        <p className="text-xs text-base/80 uppercase tracking-widest">
+          Daniela & Fam.
+        </p>
       </footer>
-      
-      {/* Botón flotante siempre visible y moderno */}
-      <div className="fixed bottom-6 right-4 z-50">
-         <button onClick={() => setIsRsvpOpen(true)} className="bg-rosa-mexicano text-white p-6 rounded-full shadow-2xl hover:scale-110 transition-transform border-4 border-white">
-            <Check className="w-6 h-6" />
-         </button>
+
+      {/* Botón flotante */}
+      <div className="fixed bottom-8 right-6 z-50 animate-fade-in">
+        <button
+          onClick={() => setIsRsvpOpen(true)}
+          className="group flex items-center gap-3 bg-accent-sage text-white px-6 py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/20"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest hidden md:block">
+            Confirmar
+          </span>
+          <Mail className="w-5 h-5" />
+        </button>
       </div>
 
       <RsvpModal isOpen={isRsvpOpen} onClose={() => setIsRsvpOpen(false)} />

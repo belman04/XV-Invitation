@@ -1,26 +1,45 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        'rosa-palo': '#E8B7C1',
-        'rosa-mexicano': '#F2A1B3',
-        'rosa-empolvado': '#F6C1CC',
-        'beige-claro': '#F5EFE6',
-        'beige-arena': '#EADDC8',
-        'marfil': '#FFF8F0',
-        'cafe': '#B8A48A',
+        // Fondo
+        base: "#F9F7F4",
+
+        // Cards
+        surface: "#F0EBE6",
+
+        "accent-nude": "#EADCD9",
+        "accent-sage": "#D4B8B1",
+        "ui-detail": "#DCD3CD",
+
+        // Texto Apoyo
+        "text-muted": "#9C8F85",
+        // Texto Principal
+        "text-primary": "#4A3E38",
       },
       fontFamily: {
-        // otras fuentes ej: 'playfair': ['Playfair Display', 'serif']
-        'serif': ['Georgia', 'serif'], 
-      }
+        sans: ["Inter", "system-ui", "sans-serif"],
+        script: [
+          '"Snell Roundhand"',
+          '"Apple Chancery"',
+          '"Edwardian Script ITC"',
+          '"Lucida Calligraphy"',
+          '"Brush Script MT"',
+          "cursive",
+        ],
+      },
+      animation: {
+        "fade-in": "fadeIn 1s ease-out forwards",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
     },
   },
   plugins: [],
-}
-
+};

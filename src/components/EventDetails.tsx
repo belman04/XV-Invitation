@@ -1,86 +1,77 @@
-import { MapPin, Calendar, Clock, Church } from 'lucide-react';
+import { MapPin, Calendar, Clock, Church, ArrowUpRight } from "lucide-react";
 
 const EventDetails = () => {
   const details = [
-    { 
-      icon: Calendar, 
-      title: "Día", 
-      info: "Sábado 24 Octubre", 
-      sub: "2026",
-      color: "bg-rosa-empolvado/20"
+    {
+      icon: Calendar,
+      title: "Fecha",
+      info: "Octubre 24",
+      sub: "Sábado, 2026",
     },
-    { 
-      icon: Church, 
-      title: "Misa", 
-      info: "4:00 PM", 
-      sub: "Parroquia de Nuestra Señora del Perpetuo Socorro",
-      color: "bg-beige-claro/50" 
+    {
+      icon: Church,
+      title: "Misa de Acción de Gracias",
+      info: "5:00 PM",
+      sub: "Parroquia Nta. Sra. del Perpetuo Socorro",
     },
-    { 
-      icon: Clock, 
-      title: "Recepción", 
-      info: "6:00 PM", 
-      sub: "Hasta las 2:00 AM",
-      color: "bg-beige-arena/30"
+    {
+      icon: Clock,
+      title: "Recepción",
+      info: "7:00 PM",
+      sub: "Celebración hasta las 2:00 AM",
     },
   ];
 
   return (
-    <section className="py-10 bg-transparent">
-      <div className="max-w-[1400px] mx-auto px-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
-          
-          {details.map((item, idx) => (
-            <div 
-              key={idx} 
-              className="group flex flex-col items-center p-10 bg-white/40 backdrop-blur-sm rounded-[2.5rem] border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(232,183,193,0.15)] transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Icon Container */}
-              <div className={`w-20 h-20 ${item.color} rounded-3xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3`}>
-                <item.icon className="w-10 h-10 text-rosa-mexicano stroke-[1.5px]" />
-              </div>
-
-              {/* Text Content */}
-              <h3 className="font-serif italic text-2xl mb-4 text-cafe tracking-tight">
-                {item.title}
-              </h3>
-              
-              <div className="flex-grow flex flex-col items-center justify-start text-center">
-                <p className="text-gray-800 font-bold text-xl mb-2 leading-tight">
-                  {item.info}
-                </p>
-                <p className="text-gray-500 text-sm leading-relaxed max-w-[200px] font-medium uppercase tracking-widest px-2">
-                  {item.sub}
-                </p>
+    <section className="w-full">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+        {details.map((item, idx) => (
+          <div
+            key={idx}
+            className="group flex flex-col p-8 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-sage/50 transition-all duration-500 shadow-sm hover:shadow-md"
+          >
+            <div className="mb-6 flex justify-between items-start">
+              <div className="p-3 bg-white rounded-full shadow-sm text-accent-sage">
+                <item.icon className="w-5 h-5" strokeWidth={1.5} />
               </div>
             </div>
-          ))}
 
-          {/* Ubicación Card */}
-          <div className="group flex flex-col items-center p-10 bg-white/40 backdrop-blur-sm rounded-[2.5rem] border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_50px_rgba(232,183,193,0.15)] transition-all duration-500 hover:-translate-y-2">
-            <div className="w-20 h-20 bg-rosa-mexicano/10 rounded-3xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-3">
-              <MapPin className="w-10 h-10 text-rosa-mexicano stroke-[1.5px]" />
-            </div>
-
-            <h3 className="font-serif italic text-2xl mb-4 text-cafe tracking-tight">
-              Lugar
+            <h3 className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
+              {item.title}
             </h3>
-            
-            <p className="text-gray-800 font-bold text-xl mb-6 text-center">
-              Hacienda NAVA
+            <p className="text-2xl font-medium text-text-primary mb-1">
+              {item.info}
             </p>
-            
-            <a 
-              href="https://maps.google.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="mt-auto w-full py-4 px-6 bg-rosa-mexicano text-white rounded-2xl text-xs font-bold tracking-[0.2em] shadow-lg shadow-rosa-mexicano/20 hover:bg-rosa-palo hover:shadow-xl transition-all duration-300 text-center uppercase"
-            >
-              Ver Ubicación
-            </a>
+            <p className="text-sm text-text-primary/70">{item.sub}</p>
           </div>
+        ))}
+      </div>
 
+      <div className="relative group w-full bg-accent-nude/30 rounded-2xl p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-accent-nude/50">
+        <div className="flex flex-col items-center md:items-start text-center md:text-left z-10">
+          <div className="flex items-center gap-3 mb-4">
+            <MapPin className="w-5 h-5 text-accent-sage" />
+            <span className="text-xs font-bold text-text-muted uppercase tracking-widest">
+              Ubicación
+            </span>
+          </div>
+          <h3 className="text-3xl md:text-4xl font-medium text-text-primary mb-2">
+            Hacienda NAVA
+          </h3>
+          <p className="text-text-primary/70 max-w-md">
+            Un espacio mágico para una noche inolvidable.
+          </p>
         </div>
+
+        <a
+          href="https://www.google.com/maps/place/Jardin+de+eventos+Hacienda+NAVA/@32.6365474,-114.8477733,18z/data=!4m6!3m5!1s0x80d655199cb98f61:0x747ef834a209ae6d!8m2!3d32.6370771!4d-114.8461802!16s%2Fg%2F11ff0swzh9?entry=ttu&g_ep=EgoyMDI2MDEyOC4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="z-10 flex items-center gap-2 px-8 py-4 bg-text-primary text-base rounded-full hover:bg-[#382E29] transition-all duration-300 font-medium text-sm tracking-wide group-hover:pr-6 shadow-lg hover:shadow-xl"
+        >
+          Ver Mapa
+          <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+        </a>
       </div>
     </section>
   );
