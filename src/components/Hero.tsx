@@ -3,7 +3,7 @@ const Hero = () => {
     <header className="relative h-[100svh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-base">
       <div className="absolute inset-0 w-full h-full">
         <img
-          src="/fondo-xv.webp"
+          src="/fondo-xv.jpg"
           alt="Portada"
           className="w-full h-full object-cover brightness-[0.75] sepia-[20%] contrast-110"
         />

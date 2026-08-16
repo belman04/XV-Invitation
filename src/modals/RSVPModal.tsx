@@ -159,7 +159,9 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
             <div className="pt-2 md:pt-4">
               <p className="text-center text-xs md:text-sm text-text-primary/60 mb-4 md:mb-6">
                 Por favor confirmar antes del{" "}
-                <span className="text-text-primary font-bold">1 de Junio</span>
+                <span className="text-text-primary font-bold">
+                  30 de Septiembre
+                </span>
               </p>
               <button
                 type="submit"
