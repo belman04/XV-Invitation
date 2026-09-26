@@ -19,7 +19,7 @@ const EventDetails = () => {
       icon: Clock,
       title: "Recepción",
       info: "7:00 PM",
-      sub: "Celebración hasta las 2:00 AM",
+      sub: "Celebración hasta la 1:00 AM",
     },
   ];
 
@@ -29,10 +29,10 @@ const EventDetails = () => {
         {details.map((item, idx) => (
           <div
             key={idx}
-            className="group flex flex-col p-8 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-sage/50 transition-all duration-500 shadow-sm hover:shadow-md"
+            className="group flex flex-col p-8 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-rose/50 transition-all duration-500 shadow-sm hover:shadow-md"
           >
             <div className="mb-6 flex justify-between items-start">
-              <div className="p-3 bg-white rounded-full shadow-sm text-accent-sage">
+              <div className="p-3 bg-white rounded-full shadow-sm text-accent-rose">
                 <item.icon className="w-5 h-5" strokeWidth={1.5} />
               </div>
             </div>
@@ -51,7 +51,7 @@ const EventDetails = () => {
       <div className="relative group w-full bg-accent-nude/30 rounded-2xl p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-accent-nude/50">
         <div className="flex flex-col items-center md:items-start text-center md:text-left z-10">
           <div className="flex items-center gap-3 mb-4">
-            <MapPin className="w-5 h-5 text-accent-sage" />
+            <MapPin className="w-5 h-5 text-accent-rose" />
             <span className="text-xs font-bold text-text-muted uppercase tracking-widest">
               Ubicación
             </span>

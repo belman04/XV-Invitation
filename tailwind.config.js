@@ -12,6 +12,7 @@ export default {
 
         "accent-nude": "#EADCD9",
         "accent-sage": "#E6B0A6",
+        "accent-rose": "#E6B0A6",
         "ui-detail": "#DCD3CD",
 
         // Texto Apoyo

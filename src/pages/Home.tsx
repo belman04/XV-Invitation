@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Gift, Mail } from "lucide-react";
+import { Gift, Mail, Sparkles } from "lucide-react";
 import Hero from "../components/Hero";
 import Countdown from "../components/Countdown";
 import EventDetails from "../components/EventDetails";
@@ -26,7 +26,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-base text-text-primary font-sans selection:bg-accent-sage selection:text-white">
+    <div className="min-h-screen bg-base text-text-primary font-sans selection:bg-accent-rose selection:text-white">
       <Hero />
 
       <main className="relative z-20">
@@ -51,17 +51,17 @@ const Home = () => {
               <h2 className="text-[11px] md:text-xs font-bold text-text-muted uppercase tracking-[0.4em] mb-4">
                 En compañía de
               </h2>
-              <div className="w-12 h-[1px] bg-accent-sage"></div>
+              <div className="w-12 h-[1px] bg-accent-rose"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-16 text-center">
               <div className="flex flex-col items-center justify-center">
                 <p className="text-xl md:text-3xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
-                  Gustavo Belman
-                  <span className="block text-3xl md:text-4xl text-accent-sage font-script my-1 lowercase">
+                  José Gustavo Belman González
+                  <span className="block text-3xl md:text-4xl text-accent-rose font-script my-1 lowercase">
                     y
                   </span>
-                  María Franco
+                  María Elena Franco Hernández
                 </p>
                 <p className="text-[10px] md:text-xs font-bold text-text-muted uppercase tracking-[0.3em]">
                   Mis Padres
@@ -70,11 +70,11 @@ const Home = () => {
 
               <div className="flex flex-col items-center justify-center">
                 <p className="text-xl md:text-3xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
-                  Abel Bravo
-                  <span className="block text-3xl md:text-4xl text-accent-sage font-script my-1 lowercase">
+                  Abel Bravo Pendiente
+                  <span className="block text-3xl md:text-4xl text-accent-rose font-script my-1 lowercase">
                     y
                   </span>
-                  Leticia Belman
+                  Leticia Belman González
                 </p>
                 <p className="text-[10px] md:text-xs font-bold text-text-muted uppercase tracking-[0.3em]">
                   Mis Padrinos
@@ -90,11 +90,11 @@ const Home = () => {
                   Gustavo Belman Franco
                 </p>
                 <div className="flex items-center justify-center gap-4">
-                  <div className="w-6 h-[1px] bg-accent-sage/50"></div>
-                  <p className="text-[10px] md:text-xs font-bold text-accent-sage uppercase tracking-[0.3em]">
+                  <div className="w-6 h-[1px] bg-accent-rose/50"></div>
+                  <p className="text-[10px] md:text-xs font-bold text-accent-rose uppercase tracking-[0.3em]">
                     Mi Chambelán de Honor
                   </p>
-                  <div className="w-6 h-[1px] bg-accent-sage/50"></div>
+                  <div className="w-6 h-[1px] bg-accent-rose/50"></div>
                 </div>
               </div>
             </div>
@@ -116,20 +116,88 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Sección Regalos */}
-        <div className="py-24 px-6 bg-base">
-          <div className="max-w-3xl mx-auto border-t border-b border-ui-detail py-16 text-center relative">
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-base px-4">
-              <Gift className="w-6 h-6 text-accent-sage" strokeWidth={1.5} />
+        {/* Sección Código de Vestimenta y Regalos */}
+        <div className="py-16 md:py-20 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col items-center mb-14 text-center">
+              <h2 className="text-3xl md:text-5xl font-light text-text-primary mb-4">
+                Detalles del Evento
+              </h2>
+              <p className="text-text-muted italic font-light">
+                Información importante para acompañarnos
+              </p>
             </div>
 
-            <h2 className="text-2xl font-medium uppercase tracking-widest text-text-primary mb-6">
-              Regalos
-            </h2>
-            <p className="text-text-primary/80 text-lg leading-relaxed max-w-lg mx-auto font-light">
-              Su presencia es mi mayor regalo. Si desean tener un detalle
-              conmigo, contaremos con un buzón para sobres en la recepción.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Card 1: Código de Vestimenta */}
+              <div className="group flex flex-col justify-between p-8 md:p-10 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-rose/50 transition-all duration-500 shadow-sm hover:shadow-md text-left">
+                <div>
+                  <div className="mb-6 flex justify-between items-start">
+                    <div className="p-3 bg-white rounded-full shadow-sm text-accent-rose">
+                      <Sparkles className="w-5 h-5" strokeWidth={1.5} />
+                    </div>
+                  </div>
+
+                  <h3 className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
+                    Código de Vestimenta
+                  </h3>
+                  <p className="text-2xl font-medium text-text-primary mb-2">
+                    Formal
+                  </p>
+                  <p className="text-sm text-text-primary/70 font-light leading-relaxed mb-6">
+                    Aviso: Les pedimos de la manera más atenta evitar prendas en tonalidades{" "}
+                    <span className="text-text-primary font-normal">nude, champagne y beige</span>, ya que están reservados exclusivamente para la quinceañera.
+                  </p>
+                </div>
+
+                <div className="pt-5 border-t border-ui-detail/50">
+                  <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-3">
+                    Tonos reservados
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#EADCD9] border border-white shadow-sm ring-1 ring-ui-detail inline-block"></span>
+                      <span className="text-xs text-text-primary/80 font-light">Nude</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#F3E5D4] border border-white shadow-sm ring-1 ring-ui-detail inline-block"></span>
+                      <span className="text-xs text-text-primary/80 font-light">Champagne</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-4 h-4 rounded-full bg-[#E4D5C7] border border-white shadow-sm ring-1 ring-ui-detail inline-block"></span>
+                      <span className="text-xs text-text-primary/80 font-light">Beige</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Lluvia de Sobres */}
+              <div className="group flex flex-col justify-between p-8 md:p-10 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-rose/50 transition-all duration-500 shadow-sm hover:shadow-md text-left">
+                <div>
+                  <div className="mb-6 flex justify-between items-start">
+                    <div className="p-3 bg-white rounded-full shadow-sm text-accent-rose">
+                      <Gift className="w-5 h-5" strokeWidth={1.5} />
+                    </div>
+                  </div>
+
+                  <h3 className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
+                    Muestra de Afecto
+                  </h3>
+                  <p className="text-2xl font-medium text-text-primary mb-2">
+                    Lluvia de Sobres
+                  </p>
+                  <p className="text-sm text-text-primary/70 font-light leading-relaxed mb-6">
+                    Su presencia es mi mayor regalo. Si desean tener un detalle conmigo, contaremos con un buzón para sobres en la recepción.
+                  </p>
+                </div>
+
+                <div className="pt-5 border-t border-ui-detail/50 flex items-center min-h-[53px]">
+                  <p className="text-xs italic text-text-muted font-light">
+                    "El mejor regalo es compartir este día con ustedes."
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </main>
@@ -147,11 +215,10 @@ const Home = () => {
       {/* Botón flotante */}
       <div className="fixed bottom-8 right-6 md:bottom-10 md:right-10 z-50 flex flex-col items-end gap-3 animate-fade-in">
         <div
-          className={`bg-white/95 backdrop-blur-sm px-4 py-2 rounded-2xl rounded-br-none shadow-lg border border-accent-sage/30 animate-bounce-slow transition-all duration-500 origin-bottom-right ${
-            showTooltip
-              ? "opacity-100 scale-100"
-              : "opacity-0 scale-50 pointer-events-none"
-          }`}
+          className={`bg-white/95 backdrop-blur-sm px-4 py-2 rounded-2xl rounded-br-none shadow-lg border border-accent-rose/30 animate-bounce-slow transition-all duration-500 origin-bottom-right ${showTooltip
+            ? "opacity-100 scale-100"
+            : "opacity-0 scale-50 pointer-events-none"
+            }`}
         >
           <span className="text-[10px] font-bold uppercase tracking-widest text-text-primary">
             ¡Aparta la fecha!
@@ -159,11 +226,11 @@ const Home = () => {
         </div>
 
         <div className="relative flex items-center justify-center">
-          <div className="absolute inset-0 w-full h-full bg-accent-sage/60 rounded-full animate-ping"></div>
+          <div className="absolute inset-0 w-full h-full bg-accent-rose/60 rounded-full animate-ping"></div>
 
           <button
             onClick={() => setIsRsvpOpen(true)}
-            className="relative group flex items-center justify-center gap-3 bg-accent-sage text-white p-4 md:px-8 md:py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/30"
+            className="relative group flex items-center justify-center gap-3 bg-accent-rose text-white p-4 md:px-8 md:py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/30"
           >
             <span className="text-xs md:text-sm font-bold uppercase tracking-widest hidden md:block">
               Confirmar

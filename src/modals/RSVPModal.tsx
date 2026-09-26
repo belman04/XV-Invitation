@@ -61,7 +61,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
       <div className="bg-base w-full max-w-lg rounded-[2rem] p-5 md:p-12 relative shadow-2xl animate-fade-in flex flex-col max-h-[85vh] overflow-y-auto border border-white/50">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-surface hover:bg-surface/80 rounded-full transition-colors text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage z-10"
+          className="absolute top-4 right-4 md:top-6 md:right-6 p-2 bg-surface hover:bg-surface/80 rounded-full transition-colors text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-rose z-10"
         >
           <X size={20} className="md:w-6 md:h-6" />
         </button>
@@ -72,7 +72,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
         </div>
         {isSuccess ? (
           <div className="text-center py-12 flex flex-col items-center">
-            <div className="w-20 h-20 bg-accent-sage/20 rounded-full flex items-center justify-center mb-6 text-accent-sage">
+            <div className="w-20 h-20 bg-accent-rose/20 rounded-full flex items-center justify-center mb-6 text-accent-rose">
               <Check size={32} />
             </div>
             <h3 className="text-2xl font-medium text-text-primary mb-2">
@@ -91,7 +91,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
               <input
                 name="name"
                 type="text"
-                className="w-full bg-transparent border-b border-ui-detail py-2 md:py-4 text-base md:text-xl text-text-primary placeholder:text-text-primary/30 focus:outline-none focus:border-accent-sage transition-colors rounded-none"
+                className="w-full bg-transparent border-b border-ui-detail py-2 md:py-4 text-base md:text-xl text-text-primary placeholder:text-text-primary/30 focus:outline-none focus:border-accent-rose transition-colors rounded-none"
                 placeholder="Escribe aquí..."
                 required
                 disabled={isSubmitting}
@@ -108,7 +108,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="button"
                     onClick={() => setAdults(Math.max(1, adults - 1))}
-                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-rose"
                   >
                     <Minus size={16} className="md:w-5 md:h-5" />
                   </button>
@@ -120,7 +120,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="button"
                     onClick={() => setAdults(adults + 1)}
-                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-rose"
                   >
                     <Plus size={16} className="md:w-5 md:h-5" />
                   </button>
@@ -135,7 +135,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="button"
                     onClick={() => setKids(Math.max(0, kids - 1))}
-                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-rose"
                   >
                     <Minus size={16} className="md:w-5 md:h-5" />
                   </button>
@@ -147,7 +147,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="button"
                     onClick={() => setKids(kids + 1)}
-                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-sage"
+                    className="w-8 h-8 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors shadow-sm bg-white hover:bg-surface/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-rose"
                   >
                     <Plus size={16} className="md:w-5 md:h-5" />
                   </button>
@@ -160,20 +160,27 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
               <p className="text-center text-xs md:text-sm text-text-primary/60 mb-4 md:mb-6">
                 Por favor confirmar antes del{" "}
                 <span className="text-text-primary font-bold">
-                  30 de Septiembre
+                  10 de Octubre
                 </span>
               </p>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full py-4 md:py-5 rounded-xl font-bold tracking-widest uppercase text-xs md:text-sm transition-all shadow-lg hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-sage ${
-                  isSubmitting
+                className={`w-full py-4 md:py-5 rounded-xl font-bold tracking-widest uppercase text-xs md:text-sm transition-all shadow-lg hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent-rose ${isSubmitting
                     ? "bg-gray-200 text-gray-400"
-                    : "bg-accent-sage text-white hover:opacity-90 hover:-translate-y-1"
-                }`}
+                    : "bg-accent-rose text-white hover:opacity-90 hover:-translate-y-1"
+                  }`}
               >
                 {isSubmitting ? "Enviando..." : "Confirmar Asistencia"}
               </button>
+
+              {/* Aviso de Vestimenta */}
+              <p className="text-center text-xs text-text-primary/60 mt-4 leading-relaxed font-light">
+                <span className="font-semibold text-accent-rose uppercase tracking-wider text-[10px] block mb-1">
+                  Código de Vestimenta
+                </span>
+                Tonalidades <span className="text-text-primary font-medium">nude, champagne y beige</span> reservadas para la quinceañera.
+              </p>
             </div>
           </form>
         )}
