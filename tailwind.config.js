@@ -4,40 +4,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Fondo
-        base: "#F9F7F4",
+        // Fondos
+        base: "#FBF8F4",
+        "base-warm": "#F5EDE5",
 
-        // Cards
-        surface: "#F0EBE6",
+        // Superficies
+        surface: "#F0E8DF",
 
-        "accent-nude": "#EADCD9",
-        "accent-sage": "#E6B0A6",
-        "accent-rose": "#E6B0A6",
-        "ui-detail": "#DCD3CD",
+        // Acentos
+        "accent-rose": "#C4937A",
+        "accent-rose-light": "#D4A68F",
+        "accent-rose-dark": "#A87A63",
+        "accent-blush": "#E8D5CB",
+        "accent-sage": "#B8C4B8",
 
-        // Texto Apoyo
-        "text-muted": "#8A7A70",
-        // Texto Principal
-        "text-primary": "#4A3E38",
+        // UI
+        "ui-detail": "#D8CFC7",
+
+        // Texto
+        "text-primary": "#3D3530",
+        "text-muted": "#8A7E76",
+        "text-light": "#A89E95",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],
-        script: [
-          '"Snell Roundhand"',
-          '"Apple Chancery"',
-          '"Edwardian Script ITC"',
-          '"Lucida Calligraphy"',
-          '"Brush Script MT"',
-          "cursive",
-        ],
+        serif: ['"Playfair Display"', "Georgia", "serif"],
+        script: ['"Great Vibes"', "cursive"],
       },
       animation: {
         "fade-in": "fadeIn 1s ease-out forwards",
+        "fade-in-up": "fadeInUp 0.8s ease-out forwards",
         "bounce-slow": "bounce-slow 4s infinite",
+        "scroll-hint": "scrollHint 2s ease-in-out infinite",
       },
       keyframes: {
         fadeIn: {
-          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "0%": { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        fadeInUp: {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         "bounce-slow": {
@@ -46,6 +52,10 @@ export default {
           "10%": { transform: "translateY(0)" }, // Baja
           "15%": { transform: "translateY(-5px)" }, // Rebote
           "20%": { transform: "translateY(0)" }, // Baja y se queda quieto el 80% restante del tiempo
+        },
+        scrollHint: {
+          "0%, 100%": { transform: "translateY(0)", opacity: "0.6" },
+          "50%": { transform: "translateY(8px)", opacity: "0.2" },
         },
       },
     },

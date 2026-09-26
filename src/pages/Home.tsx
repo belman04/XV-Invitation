@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Gift, Mail, Sparkles } from "lucide-react";
+import { Mail, Shirt } from "lucide-react";
 import Hero from "../components/Hero";
 import Countdown from "../components/Countdown";
 import EventDetails from "../components/EventDetails";
@@ -25,40 +25,68 @@ const Home = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (prefersReducedMotion) {
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => el.classList.add("revealed"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="min-h-screen bg-base text-text-primary font-sans selection:bg-accent-rose selection:text-white">
       <Hero />
 
-      <main className="relative z-20">
-        {/* Sección Countdown */}
-        <div className="py-20 md:py-30 px-6 relative overflow-hidden bg-gradient-to-b from-white/40 to-base/40">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent-nude/20 blur-[100px] rounded-full pointer-events-none"></div>
+      <main className="relative z-20 -mt-10 rounded-t-[2.5rem] bg-base shadow-[0_-8px_30px_rgba(0,0,0,0.08)] overflow-hidden">
+        <section className="pt-14 pb-20 md:pt-20 md:pb-28 px-6 relative overflow-hidden bg-base-warm/50">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-accent-blush/15 blur-[120px] rounded-full pointer-events-none"></div>
 
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <p className="text-[11px] md:text-xs font-bold text-text-muted uppercase tracking-[0.2em] md:tracking-[0.3em] mb-10 text-center whitespace-nowrap">
+            <p className="reveal text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-[0.25em] mb-10 text-center">
               Cuenta regresiva para el gran día
             </p>
-            <Countdown targetDate={eventDate} />
+            <div className="reveal reveal-delay-1">
+              <Countdown targetDate={eventDate} />
+            </div>
           </div>
-        </div>
+        </section>
 
-        <div className="mx-auto mb-14"></div>
-
-        {/* Sección de Presentación */}
-        <div className="pt-10 pb-20 px-6 relative z-10">
-          <div className="max-w-5xl mx-auto bg-white/70 rounded-[3rem] py-16 px-6 md:px-16">
-            <div className="flex flex-col items-center mb-16 text-center">
-              <h2 className="text-[11px] md:text-xs font-bold text-text-muted uppercase tracking-[0.4em] mb-4">
+        <section className="py-20 md:py-28 px-6 relative z-10 bg-base">
+          <div className="max-w-4xl mx-auto">
+            <div className="reveal flex flex-col items-center mb-14 text-center">
+              <h2 className="text-[11px] md:text-xs font-semibold text-text-muted uppercase tracking-[0.4em] mb-5">
                 En compañía de
               </h2>
-              <div className="w-12 h-[1px] bg-accent-rose"></div>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-[1px] bg-accent-rose/40"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-rose/50"></div>
+                <div className="w-8 h-[1px] bg-accent-rose/40"></div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-16 text-center">
-              <div className="flex flex-col items-center justify-center">
-                <p className="text-xl md:text-3xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-20 mb-16 text-center">
+              <div className="reveal flex flex-col items-center justify-center">
+                <p className="text-xl md:text-2xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
                   José Gustavo Belman González
-                  <span className="block text-3xl md:text-4xl text-accent-rose font-script my-1 lowercase">
+                  <span className="block text-3xl md:text-4xl text-accent-rose font-script my-2 lowercase">
                     y
                   </span>
                   María Elena Franco Hernández
@@ -68,10 +96,10 @@ const Home = () => {
                 </p>
               </div>
 
-              <div className="flex flex-col items-center justify-center">
-                <p className="text-xl md:text-3xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
+              <div className="reveal reveal-delay-1 flex flex-col items-center justify-center">
+                <p className="text-xl md:text-2xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
                   Abel Bravo Pendiente
-                  <span className="block text-3xl md:text-4xl text-accent-rose font-script my-1 lowercase">
+                  <span className="block text-3xl md:text-4xl text-accent-rose font-script my-2 lowercase">
                     y
                   </span>
                   Leticia Belman González
@@ -82,155 +110,166 @@ const Home = () => {
               </div>
             </div>
 
-            <div className="text-center relative max-w-3xl mx-auto">
+            <div className="reveal text-center relative max-w-3xl mx-auto">
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-[1px] bg-gradient-to-r from-transparent via-ui-detail to-transparent"></div>
 
               <div className="pt-14">
-                <p className="text-xl md:text-3xl font-serif font-light text-text-primary/90 mb-4 tracking-wide">
+                <p className="text-xl md:text-2xl font-serif font-light text-text-primary/90 mb-4 tracking-wide">
                   Gustavo Belman Franco
                 </p>
                 <div className="flex items-center justify-center gap-4">
-                  <div className="w-6 h-[1px] bg-accent-rose/50"></div>
+                  <div className="w-6 h-[1px] bg-accent-rose/40"></div>
                   <p className="text-[10px] md:text-xs font-bold text-accent-rose uppercase tracking-[0.3em]">
                     Mi Chambelán de Honor
                   </p>
-                  <div className="w-6 h-[1px] bg-accent-rose/50"></div>
+                  <div className="w-6 h-[1px] bg-accent-rose/40"></div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* Sección Detalles */}
-        <div className="py-18 md:py-5 px-6">
+        <section className="py-20 md:py-28 px-6 bg-base-warm/40">
           <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col items-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-light text-text-primary mb-4">
+            <div className="reveal flex flex-col items-center mb-14">
+              <h2 className="text-3xl md:text-4xl font-serif font-light text-text-primary mb-3">
                 Itinerario
               </h2>
-              <p className="text-text-muted italic font-light">
+              <p className="text-text-muted text-sm italic font-light mb-5">
                 Acompáñanos en cada momento
               </p>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-[1px] bg-accent-rose/40"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-rose/50"></div>
+                <div className="w-8 h-[1px] bg-accent-rose/40"></div>
+              </div>
             </div>
             <EventDetails />
           </div>
-        </div>
+        </section>
 
-        {/* Sección Código de Vestimenta y Regalos */}
-        <div className="py-16 md:py-20 px-6">
+        <section className="py-20 md:py-28 px-6 bg-base">
           <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col items-center mb-14 text-center">
-              <h2 className="text-3xl md:text-5xl font-light text-text-primary mb-4">
+            <div className="reveal flex flex-col items-center mb-14 text-center">
+              <h2 className="text-3xl md:text-4xl font-serif font-light text-text-primary mb-3">
                 Detalles del Evento
               </h2>
-              <p className="text-text-muted italic font-light">
+              <p className="text-text-muted text-sm italic font-light mb-5">
                 Información importante para acompañarnos
               </p>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-[1px] bg-accent-rose/40"></div>
+                <div className="w-1.5 h-1.5 rounded-full bg-accent-rose/50"></div>
+                <div className="w-8 h-[1px] bg-accent-rose/40"></div>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Card 1: Código de Vestimenta */}
-              <div className="group flex flex-col justify-between p-8 md:p-10 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-rose/50 transition-all duration-500 shadow-sm hover:shadow-md text-left">
+              <div className="reveal group flex flex-col justify-between p-8 md:p-10 bg-white/60 backdrop-blur-sm rounded-2xl border border-ui-detail/30 hover:border-accent-rose/40 transition-all duration-500 shadow-sm hover:shadow-md text-left">
                 <div>
                   <div className="mb-6 flex justify-between items-start">
-                    <div className="p-3 bg-white rounded-full shadow-sm text-accent-rose">
-                      <Sparkles className="w-5 h-5" strokeWidth={1.5} />
+                    <div className="p-3 bg-accent-blush/30 rounded-xl text-accent-rose">
+                      <Shirt className="w-5 h-5" strokeWidth={1.5} />
                     </div>
                   </div>
 
-                  <h3 className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
+                  <h3 className="text-[11px] font-bold text-text-muted uppercase tracking-widest mb-2">
                     Código de Vestimenta
                   </h3>
-                  <p className="text-2xl font-medium text-text-primary mb-2">
+                  <p className="text-2xl font-serif font-medium text-text-primary mb-2">
                     Formal
                   </p>
-                  <p className="text-sm text-text-primary/70 font-light leading-relaxed mb-6">
-                    Aviso: Les pedimos de la manera más atenta evitar prendas en tonalidades{" "}
-                    <span className="text-text-primary font-normal">nude, champagne y beige</span>, ya que están reservados exclusivamente para la quinceañera.
+                  <p className="text-sm text-text-muted font-light leading-relaxed mb-6">
+                    Les pedimos de la manera más atenta evitar prendas en las siguientes
+                    tonalidades, ya que están reservados exclusivamente para la quinceañera.
                   </p>
                 </div>
 
-                <div className="pt-5 border-t border-ui-detail/50">
+                <div className="pt-5 border-t border-ui-detail/40">
                   <p className="text-[10px] font-bold text-text-muted uppercase tracking-widest mb-3">
                     Tonos reservados
                   </p>
                   <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#EADCD9] border border-white shadow-sm ring-1 ring-ui-detail inline-block"></span>
-                      <span className="text-xs text-text-primary/80 font-light">Nude</span>
+                      <span className="text-xs text-text-primary/80 font-light">
+                        Nude
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#F3E5D4] border border-white shadow-sm ring-1 ring-ui-detail inline-block"></span>
-                      <span className="text-xs text-text-primary/80 font-light">Champagne</span>
+                      <span className="text-xs text-text-primary/80 font-light">
+                        Champagne
+                      </span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="w-4 h-4 rounded-full bg-[#E4D5C7] border border-white shadow-sm ring-1 ring-ui-detail inline-block"></span>
-                      <span className="text-xs text-text-primary/80 font-light">Beige</span>
+                      <span className="text-xs text-text-primary/80 font-light">
+                        Beige
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Card 2: Lluvia de Sobres */}
-              <div className="group flex flex-col justify-between p-8 md:p-10 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-rose/50 transition-all duration-500 shadow-sm hover:shadow-md text-left">
+              <div className="reveal reveal-delay-1 group flex flex-col justify-between p-8 md:p-10 bg-white/60 backdrop-blur-sm rounded-2xl border border-ui-detail/30 hover:border-accent-rose/40 transition-all duration-500 shadow-sm hover:shadow-md text-left">
                 <div>
                   <div className="mb-6 flex justify-between items-start">
-                    <div className="p-3 bg-white rounded-full shadow-sm text-accent-rose">
-                      <Gift className="w-5 h-5" strokeWidth={1.5} />
+                    <div className="p-3 bg-accent-blush/30 rounded-xl text-accent-rose">
+                      <Mail className="w-5 h-5" strokeWidth={1.5} />
                     </div>
                   </div>
 
-                  <h3 className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
+                  <h3 className="text-[11px] font-bold text-text-muted uppercase tracking-widest mb-2">
                     Muestra de Afecto
                   </h3>
-                  <p className="text-2xl font-medium text-text-primary mb-2">
+                  <p className="text-2xl font-serif font-medium text-text-primary mb-2">
                     Lluvia de Sobres
                   </p>
-                  <p className="text-sm text-text-primary/70 font-light leading-relaxed mb-6">
-                    Su presencia es mi mayor regalo. Si desean tener un detalle conmigo, contaremos con un buzón para sobres en la recepción.
-                  </p>
-                </div>
-
-                <div className="pt-5 border-t border-ui-detail/50 flex items-center min-h-[53px]">
-                  <p className="text-xs italic text-text-muted font-light">
-                    "El mejor regalo es compartir este día con ustedes."
+                  <p className="text-sm text-text-muted font-light leading-relaxed mb-6">
+                    Su presencia es mi mayor regalo. Si desean tener un detalle
+                    conmigo, contaremos con un buzón para sobres en la
+                    recepción.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-text-primary/95 py-16 text-center px-6 border-t border-white/10">
-        <p className="text-base font-medium tracking-[0.2em] mb-3 uppercase text-base/100">
+      <footer className="bg-text-primary py-16 text-center px-6">
+        <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="w-10 h-[1px] bg-accent-rose/40"></div>
+          <div className="w-1.5 h-1.5 rounded-full bg-accent-rose/50"></div>
+          <div className="w-10 h-[1px] bg-accent-rose/40"></div>
+        </div>
+        <p className="text-sm font-medium tracking-[0.25em] mb-3 uppercase text-base/90">
           Nos vemos pronto
         </p>
-        <p className="text-xs text-base/80 uppercase tracking-widest">
+        <p className="text-xs text-base/60 uppercase tracking-widest">
           Daniela & Fam.
         </p>
       </footer>
 
-      {/* Botón flotante */}
       <div className="fixed bottom-8 right-6 md:bottom-10 md:right-10 z-50 flex flex-col items-end gap-3 animate-fade-in">
         <div
-          className={`bg-white/95 backdrop-blur-sm px-4 py-2 rounded-2xl rounded-br-none shadow-lg border border-accent-rose/30 animate-bounce-slow transition-all duration-500 origin-bottom-right ${showTooltip
+          className={`bg-white/95 backdrop-blur-sm px-4 py-2 rounded-2xl rounded-br-none shadow-lg border border-accent-rose/20 animate-bounce-slow transition-all duration-500 origin-bottom-right ${showTooltip
             ? "opacity-100 scale-100"
             : "opacity-0 scale-50 pointer-events-none"
             }`}
         >
           <span className="text-[10px] font-bold uppercase tracking-widest text-text-primary">
-            ¡Aparta la fecha!
+            ¡Confirma aquí!
           </span>
         </div>
 
         <div className="relative flex items-center justify-center">
-          <div className="absolute inset-0 w-full h-full bg-accent-rose/60 rounded-full animate-ping"></div>
+          <div className="absolute inset-0 w-full h-full bg-accent-rose/50 rounded-full animate-ping"></div>
 
           <button
             onClick={() => setIsRsvpOpen(true)}
-            className="relative group flex items-center justify-center gap-3 bg-accent-rose text-white p-4 md:px-8 md:py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/30"
+            className="relative group flex items-center justify-center gap-3 bg-accent-rose text-white p-4 md:px-8 md:py-4 rounded-full shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-white/20 hover:bg-accent-rose-dark"
           >
             <span className="text-xs md:text-sm font-bold uppercase tracking-widest hidden md:block">
               Confirmar

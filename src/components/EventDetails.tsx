@@ -25,41 +25,43 @@ const EventDetails = () => {
 
   return (
     <section className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+      <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-6 mb-8">
         {details.map((item, idx) => (
           <div
             key={idx}
-            className="group flex flex-col p-8 bg-surface/80 backdrop-blur-sm rounded-2xl border border-white/50 hover:border-accent-rose/50 transition-all duration-500 shadow-sm hover:shadow-md"
+            className={`reveal ${idx > 0 ? `reveal-delay-${idx}` : ""} group relative flex flex-row md:flex-col items-center md:items-start p-6 md:p-8 bg-white/60 backdrop-blur-sm rounded-2xl border-l-[3px] md:border-l-0 md:border-t-[3px] border-accent-rose/50 hover:border-accent-rose transition-all duration-500 shadow-sm hover:shadow-md`}
           >
-            <div className="mb-6 flex justify-between items-start">
-              <div className="p-3 bg-white rounded-full shadow-sm text-accent-rose">
+            <div className="mr-5 md:mr-0 md:mb-5 flex-shrink-0">
+              <div className="p-3 bg-accent-blush/30 rounded-xl text-accent-rose">
                 <item.icon className="w-5 h-5" strokeWidth={1.5} />
               </div>
             </div>
 
-            <h3 className="text-xs font-bold text-text-muted uppercase tracking-widest mb-2">
-              {item.title}
-            </h3>
-            <p className="text-2xl font-medium text-text-primary mb-1">
-              {item.info}
-            </p>
-            <p className="text-sm text-text-primary/70">{item.sub}</p>
+            <div>
+              <h3 className="text-[11px] font-bold text-text-muted uppercase tracking-widest mb-1.5">
+                {item.title}
+              </h3>
+              <p className="text-xl md:text-2xl font-serif font-medium text-text-primary mb-0.5">
+                {item.info}
+              </p>
+              <p className="text-sm text-text-muted font-light">{item.sub}</p>
+            </div>
           </div>
         ))}
       </div>
 
-      <div className="relative group w-full bg-accent-nude/30 rounded-2xl p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-accent-nude/50">
+      <div className="reveal relative group w-full bg-gradient-to-br from-accent-blush/25 to-base-warm/50 rounded-3xl p-8 md:p-12 overflow-hidden flex flex-col md:flex-row items-center justify-between gap-8 border border-accent-blush/30">
         <div className="flex flex-col items-center md:items-start text-center md:text-left z-10">
           <div className="flex items-center gap-3 mb-4">
             <MapPin className="w-5 h-5 text-accent-rose" />
-            <span className="text-xs font-bold text-text-muted uppercase tracking-widest">
+            <span className="text-[11px] font-bold text-text-muted uppercase tracking-widest">
               Ubicación
             </span>
           </div>
-          <h3 className="text-3xl md:text-4xl font-medium text-text-primary mb-2">
+          <h3 className="text-3xl md:text-4xl font-serif font-medium text-text-primary mb-2">
             Hacienda NAVA
           </h3>
-          <p className="text-text-primary/70 max-w-md">
+          <p className="text-text-muted font-light max-w-md">
             Un espacio mágico para una noche inolvidable.
           </p>
         </div>
@@ -68,7 +70,7 @@ const EventDetails = () => {
           href={EVENT_CONFIG.locationUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="z-10 flex items-center gap-2 px-8 py-4 bg-text-primary text-base rounded-full hover:bg-[#382E29] transition-all duration-300 font-medium text-sm tracking-wide group-hover:pr-6 shadow-lg hover:shadow-xl"
+          className="z-10 flex items-center gap-2 px-8 py-4 bg-text-primary text-base rounded-full hover:opacity-90 transition-all duration-300 font-medium text-sm tracking-wide shadow-lg hover:shadow-xl hover:-translate-y-0.5 group-hover:pr-7"
         >
           Ver Mapa
           <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
