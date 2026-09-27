@@ -98,7 +98,7 @@ const Home = () => {
 
               <div className="reveal reveal-delay-1 flex flex-col items-center justify-center">
                 <p className="text-xl md:text-2xl font-serif font-light text-text-primary/90 mb-3 leading-relaxed tracking-wide">
-                  Abel Bravo Pendiente
+                  Abel Bravo Guzmán
                   <span className="block text-3xl md:text-4xl text-accent-rose font-script my-2 lowercase">
                     y
                   </span>
