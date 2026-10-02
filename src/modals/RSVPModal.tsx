@@ -173,10 +173,7 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
 
             <div className="pt-2 md:pt-4">
               <p className="text-center text-xs md:text-sm text-text-primary/60 mb-4 md:mb-6">
-                Por favor confirmar antes del{" "}
-                <span className="text-text-primary font-bold">
-                  10 de Octubre
-                </span>
+                Si se registra como niño se le servirá menú de niño.
               </p>
               <button
                 type="submit"
@@ -189,6 +186,12 @@ const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
                 {isSubmitting ? "Enviando..." : "Confirmar Asistencia"}
               </button>
             </div>
+            <p className="text-center text-xs md:text-sm text-text-primary/60 mb-4 md:mb-6">
+              Por favor confirmar antes del{" "}
+              <span className="text-text-primary font-bold">
+                12 de Octubre
+              </span>
+            </p>
           </form>
         )}
       </div>

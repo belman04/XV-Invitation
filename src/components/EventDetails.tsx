@@ -1,4 +1,4 @@
-import { MapPin, Calendar, Clock, Church, ArrowUpRight } from "lucide-react";
+import { MapPin, Calendar, Clock, Church, ArrowUpRight, ForkKnife } from "lucide-react";
 import { EVENT_CONFIG } from "../config.ts";
 
 const EventDetails = () => {
@@ -20,6 +20,12 @@ const EventDetails = () => {
       title: "Recepción",
       info: "7:00 PM",
       sub: "Celebración hasta la 1:00 AM",
+    },
+    {
+      icon: ForkKnife,
+      title: "Cena",
+      info: "8:00 PM",
+      sub: "Contaremos con menú de adulto y niño",
     },
   ];
 
